@@ -78,11 +78,8 @@ if(params.IdUsuario && params.Name &&
 
 //MEtodo Iniciar Sesion
 function LoginUser(req, res){
-    var params = req.body;
-
-    var Username = params.Username;
-    var Password = params.Password;
-
+    var { Username, Password } = req.body;
+    
     User.findOne(
         {    Username: Username}, (err , user) =>{
             if (err)  return res.status(500).send({menssage : 'error en la peticion'});
